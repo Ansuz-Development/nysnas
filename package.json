@@ -6,8 +6,15 @@
   "scripts": {
     "cms": "yarn --cwd cms develop",
     "website": "yarn --cwd website dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "yarn --cwd cms && yarn --cwd website"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@keeex/eslint-config": "^1.8.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
 }
