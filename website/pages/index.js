@@ -1,5 +1,7 @@
 import React from "react";
-import SEOItem from "@ansuzdev/nexi/dist/esm/next/components/SEOItem";
+
+import SEOItem from "@ansuzdev/nexi/dist/comps/items/common/SEOItem";
+import Button from "@ansuzdev/nexi/dist/comps/items/buttons/Button";
 
 const HomePage = () => (
   <div className="container">
@@ -8,9 +10,12 @@ const HomePage = () => (
       description="My description"
     />
 
-    <main>
+    <div>
       <h1>Hello world</h1>
-    </main>
+      <Button
+        label="Click me 3"
+      />
+    </div>
   </div>
 );
 

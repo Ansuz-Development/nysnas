@@ -1,5 +1,10 @@
 module.exports = {
-  content: ["./pages/**/*.js", "./components/**/*.js"],
+  content: [
+    "./pages/**/*.js",
+    "./components/**/*.js",
+    "../../ansuz/packages/nexi/dist/**/*.js",
+    // "./node_modules/@ansuzdev/nexi/**/*.js",
+  ],
   theme: {
     screens: {
       sm: "375px",

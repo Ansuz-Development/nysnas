@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_groups",
+  "info": {
+    "singularName": "service-group",
+    "pluralName": "service-groups",
+    "displayName": "ServiceGroup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "question": {
+      "type": "text"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service",
+      "mappedBy": "group"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service-group.service-group",
+      "inversedBy": "subGroups"
+    },
+    "subGroups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-group.service-group",
+      "mappedBy": "parent"
+    },
+    "layout": {
+      "type": "string"
+    }
+  }
+}
