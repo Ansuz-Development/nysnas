@@ -2,7 +2,7 @@
   "name": "cms",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "Strapi CMS",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -14,21 +14,21 @@
     "eslint": "8.27.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-promise": "^6.0.1",
-    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^1.1.2",
-    "@strapi/plugin-graphql": "^4.5.0",
-    "@strapi/plugin-i18n": "4.5.0",
+    "@strapi/plugin-graphql": "^4.5.1",
+    "@strapi/plugin-i18n": "^4.5.1",
     "@strapi/plugin-seo": "^1.7.7",
-    "@strapi/plugin-users-permissions": "4.5.0",
-    "@strapi/strapi": "4.5.0",
+    "@strapi/plugin-users-permissions": "^4.5.1",
+    "@strapi/strapi": "^4.5.1",
     "better-sqlite3": "7.4.6",
     "mysql": "^2.18.1"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Ansuz Development"
   },
   "strapi": {
     "uuid": "f7b1be0c-c2ac-48ae-9b88-af4eec165dd9"
