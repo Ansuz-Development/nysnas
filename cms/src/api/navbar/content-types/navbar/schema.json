@@ -30,6 +30,11 @@
     },
     "layout": {
       "type": "string"
+    },
+    "rightLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.link-item"
     }
   }
 }

@@ -40,7 +40,7 @@ const fetchAPI = async (query, {variables} = {}) => {
   }
 };
 
-export const getHomepage = async locale => {
+export const getHomepage = async () => {
   const data = await fetchAPI(
     `
     query {
@@ -58,12 +58,45 @@ export const getHomepage = async locale => {
               }
             }
             sections {
+              ...on ComponentSectionsHeaderSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                photos {
+                  data {
+                    attributes {
+                      url
+                      formats
+                    }
+                  }
+                }
+                links {
+                  title
+                  link
+                }
+              }
+              ...on ComponentSectionsStatsSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                stats {
+                  label
+                  value
+                }
+              }
               ...on ComponentSectionsServiceSection {
                 id
                 __typename
-                layout
                 title
                 subtitle
+                layout
+                background
                 services {
                   id
                   name
@@ -78,7 +111,69 @@ export const getHomepage = async locale => {
                   description
                   link
                 }
+                links {
+                  title
+                  link
+                }
+              }
+              ...on ComponentSectionsGallerySection {
+                id
+                __typename
+                title
+                subtitle
+                layout
                 background
+                photos {
+                  data {
+                    attributes {
+                      url
+                      formats
+                    }
+                  }
+                }
+                links {
+                  title
+                  link
+                }
+              }
+              ...on ComponentSectionsPricingSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                plans {
+                  id
+                  title
+                  price
+                  unit
+                  plan
+                  recommended
+                  unfixed
+                  link
+                  linkTitle
+                }
+                links {
+                  title
+                  link
+                }
+              }
+              ...on ComponentSectionsGallerySection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                photos {
+                  data {
+                    attributes {
+                      url
+                      formats
+                    }
+                  }
+                }
                 links {
                   title
                   link
@@ -90,8 +185,249 @@ export const getHomepage = async locale => {
       }
     }
     `,
-    {variables: {locale}},
+    {variables: {}},
   );
 
   return data?.homepage?.data;
+};
+
+export const getPageBySlug = async slug => {
+  const data = await fetchAPI(
+    `
+    query getPageBySlug($slug:String) {
+      pages(filters:{slug:{eq:$slug}}) {
+        data {
+          attributes {
+            title
+            slug
+            description
+            cover {
+              data {
+                attributes {
+                  url
+                  formats
+                }
+              }
+            }
+            sections {
+              ...on ComponentSectionsHeaderSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                photos {
+                  data {
+                    attributes {
+                      url
+                      formats
+                    }
+                  }
+                }
+                links {
+                  title
+                  link
+                }
+              }
+              ...on ComponentSectionsStatsSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                stats {
+                  label
+                  value
+                }
+              }
+              ...on ComponentSectionsServiceSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                services {
+                  id
+                  name
+                  photo {
+                    data {
+                      attributes {
+                        url
+                        formats
+                      }
+                    }
+                  }
+                  description
+                  link
+                }
+                links {
+                  title
+                  link
+                }
+              }
+              ...on ComponentSectionsGallerySection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                photos {
+                  data {
+                    attributes {
+                      url
+                      formats
+                    }
+                  }
+                }
+                links {
+                  title
+                  link
+                }
+              }
+              ...on ComponentSectionsPricingSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                plans {
+                  id
+                  title
+                  price
+                  unit
+                  plan
+                  recommended
+                  unfixed
+                  link
+                  linkTitle
+                }
+                links {
+                  title
+                  link
+                }
+              }
+              ...on ComponentSectionsGallerySection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                photos {
+                  data {
+                    attributes {
+                      url
+                      formats
+                    }
+                  }
+                }
+                links {
+                  title
+                  link
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `,
+    {variables: {slug}},
+  );
+
+  return data?.pages?.data?.[0];
+};
+
+export const getNavbar = async () => {
+  const data = await fetchAPI(
+    `
+    query {
+      navbar {
+        data {
+          attributes {
+            layout
+            logo {
+              data {
+                attributes {
+                  url
+                  formats
+                }
+              }
+            }
+            links {
+              id
+              title
+              link
+            }
+            rightLinks {
+              id
+              title
+              link
+            }
+          }
+        }
+      }
+    }
+    `,
+    {variables: {}},
+  );
+
+  return data?.navbar?.data;
+};
+
+export const getFooter = async () => {
+  const data = await fetchAPI(
+    `
+    query {
+      footer {
+        data {
+          attributes {
+            layout
+            copyright
+            logo {
+              data {
+                attributes {
+                  url
+                  formats
+                }
+              }
+            }
+            photo {
+              data {
+                attributes {
+                  url
+                  formats
+                }
+              }
+            }
+            addresses {
+              id
+              title
+              address
+            }
+            contacts {
+              id
+              name
+              phone
+              email
+            }
+            socialLinks {
+              facebook
+              linkedin
+              twitter
+            }
+          }
+        }
+      }
+    }
+    `,
+    {variables: {}},
+  );
+
+  return data?.footer?.data;
 };

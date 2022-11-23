@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page"
+    "displayName": "Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,11 +23,12 @@
       "targetField": "title"
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "sections": {
       "type": "dynamiczone",
@@ -37,7 +39,8 @@
         "sections.pricing-section",
         "sections.quote-section",
         "sections.service-section",
-        "sections.text-section"
+        "sections.text-section",
+        "sections.stats-section"
       ]
     }
   }

@@ -40,6 +40,17 @@
       "type": "component",
       "repeatable": false,
       "component": "items.social-item"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "copyright": {
+      "type": "text"
     }
   }
 }
