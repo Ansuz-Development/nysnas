@@ -7,7 +7,10 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2592000,
-    domains: ["localhost"],
+    domains: [
+      "localhost",
+      "cms.hestiaecobat.fr",
+    ],
   },
   // swcMinify: true,
   webpack: config => {

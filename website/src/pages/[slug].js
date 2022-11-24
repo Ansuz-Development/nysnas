@@ -8,7 +8,7 @@ import renderSection from "../comps/sections";
 import BasePage from "../comps/BasePage";
 
 const SlugPage = ({page, navbar, footer}) => (
-  <BasePage path="/" navbar={navbar} footer={footer}>
+  <BasePage path={`/${getAttr(page, "slug")}`} navbar={navbar} footer={footer}>
     <SEOItem
       title="Title"
       description="My description"

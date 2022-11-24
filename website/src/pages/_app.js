@@ -4,6 +4,7 @@ import "../styles/index.scss";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import "@ansuzdev/nexi/dist/scss/gs001.scss";
 
 const MyApp = ({Component, pageProps}) => <Component {...pageProps} />;
 
