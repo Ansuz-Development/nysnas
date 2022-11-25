@@ -1,7 +1,6 @@
 module.exports = {
   content: [
-    "./pages/**/*.js",
-    "./components/**/*.js",
+    "./src/**/*.js",
     "./node_modules/@ansuzdev/nexi/**/*.js",
   ],
   theme: {

@@ -8,7 +8,9 @@ const Footer = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/footers/
 const BasePage = ({path, navbar, footer, children}) => (
   <>
     {Boolean(navbar) && <Navbar data={navbar} active={path} />}
-    {children}
+    <main className="min-h-[500px]">
+      {children}
+    </main>
     {Boolean(footer) && <Footer data={footer} />}
   </>
 );

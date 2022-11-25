@@ -408,33 +408,6 @@ export const getPageBySlug = async slug => {
   return data?.pages?.data?.[0];
 };
 
-// export const getPageBySlug = async (creatorId, slug) => {
-//   try {
-//     const res = await strapiApi.get("pages", {
-//       params: {
-//         filters: {slug},
-//         populate: [
-//           "sections",
-//           "sections.links",
-//           "sections.photo",
-//           "sections.photos",
-//           "sections.services",
-//           "sections.services.photo",
-//           "sections.quotes",
-//           "sections.stats",
-//           "sections.plans",
-//           "sections.document",
-//         ],
-//       },
-//       paramsSerializer: params => qs.stringify(params),
-//     });
-
-//     return res.data?.data?.[0];
-//   } catch (error) {
-//     return null;
-//   }
-// };
-
 export const getNavbar = async () => {
   const data = await fetchAPI(
     `
@@ -522,4 +495,65 @@ export const getFooter = async () => {
   );
 
   return data?.footer?.data;
+};
+
+export const getServiceGroup = async id => {
+  const data = await fetchAPI(
+    `
+    query getServiceGroup($id:ID) {
+      serviceGroup(id:$id) {
+        data {
+          id
+          attributes {
+            layout
+            name
+            question
+            parent {
+              data {
+                id
+              }
+            }
+            subGroups {
+              data {
+                id
+                attributes {
+                  name
+                }
+              }
+            }
+            services {
+              data {
+                id
+                attributes {
+                  name
+                  answer
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `,
+    {variables: {id}},
+  );
+
+  return data?.serviceGroup?.data;
+};
+
+export const getServiceGroups = async () => {
+  const data = await fetchAPI(
+    `
+    query {
+      serviceGroups {
+        data {
+          id
+        }
+      }
+    }
+    `,
+    {variables: {}},
+  );
+
+  return data?.serviceGroups?.data;
 };

@@ -6,3 +6,54 @@ html,
 body {
   font-family: "Roboto", sans-serif !important;
 }
+
+
+@layer base {
+  h1 {
+    @apply text-8xl font-light leading-snug tracking-[-1.5px];
+  }
+
+  h2 {
+    @apply text-6xl font-light leading-snug tracking-[-0.5px];
+  }
+
+  h3 {
+    @apply text-5xl leading-snug;
+  }
+
+  h4 {
+    @apply text-4xl leading-snug tracking-[0.25px];
+  }
+
+  h5 {
+    @apply text-2xl leading-normal;
+  }
+
+  h6 {
+    @apply text-xl font-medium leading-normal tracking-[0.15px];
+  }
+
+  .body1 {
+    @apply text-base leading-normal tracking-[0.5px];
+  }
+
+  .body2 {
+    @apply text-sm leading-normal tracking-[0.25px];
+  }
+
+  .subtitle1 {
+    @apply text-base leading-normal font-bold tracking-[0.5px];
+  }
+
+  .subtitle2 {
+    @apply text-sm leading-normal font-bold tracking-[0.1px];
+  }
+
+  .caption {
+    @apply text-xs md:text-sm;
+  }
+
+  .title {
+    @apply text-base md:text-lg;
+  }
+}
