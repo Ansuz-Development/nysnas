@@ -2,15 +2,16 @@ import React from "react";
 import {Html, Main, NextScript, Head} from "next/document";
 
 const MyDocument = () => (
-  <Html lang="en">
+  <Html lang="fr">
     <Head>
       <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <meta name="author" content="Nysnas" />
-      <meta name="copyright" content="Nysnas" />
+      <meta name="author" content="HestiaEcobat" />
+      <meta name="copyright" content="HestiaEcobat" />
 
-      <meta name="application-name" content="Nysnas" />
-      <meta name="apple-mobile-web-app-title" content="Nysnas" />
+      <meta name="application-name" content="HestiaEcobat" />
+      <meta name="apple-mobile-web-app-title" content="HestiaEcobat" />
 
       <meta property="og:type" content="website" />
 
@@ -27,7 +28,7 @@ const MyDocument = () => (
       <link rel="shortcut icon" href="/favicon.png" />
 
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap"
         rel="stylesheet"
       />
     </Head>

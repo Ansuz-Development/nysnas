@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import {getAttr} from "@ansuzdev/nexi/dist/utils";
 import SEOItem from "@ansuzdev/nexi/dist/comps/items/common/SEOItem";
-import {getFooter, getNavbar, getPageBySlug} from "../libs/api";
+import {getFooter, getNavbar, getPageBySlug, getPages} from "../libs/api";
 import renderSection from "../comps/sections";
 import BasePage from "../comps/BasePage";
 
@@ -45,11 +45,10 @@ export const getStaticProps = async ({params}) => {
 };
 
 export const getStaticPaths = async () => {
-  // const pageSlugs = await getPageSlugs(24);
-  const pageSlugs = null;
+  const pages = await getPages();
 
   return {
-    paths: pageSlugs?.map(page => `/${page?.attributes?.slug}`) || [],
+    paths: pages?.map(page => `/${getAttr(page, "slug")}`) || [],
     fallback: "blocking",
   };
 };

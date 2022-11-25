@@ -191,6 +191,26 @@ export const getHomepage = async () => {
   return data?.homepage?.data;
 };
 
+export const getPages = async () => {
+  const data = await fetchAPI(
+    `
+    query {
+      pages {
+        data {
+          attributes {
+            title
+            slug
+          }
+        }
+      }
+    }
+    `,
+    {variables: {}},
+  );
+
+  return data?.pages?.data;
+};
+
 export const getPageBySlug = async slug => {
   const data = await fetchAPI(
     `
