@@ -351,6 +351,26 @@ export const getPageBySlug = async slug => {
                   link
                 }
               }
+              ...on ComponentSectionsPreviewSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                document {
+                  data {
+                    attributes {
+                      url
+                      formats
+                    }
+                  }
+                }
+                links {
+                  title
+                  link
+                }
+              }
             }
           }
         }
