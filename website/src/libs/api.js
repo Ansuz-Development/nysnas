@@ -1,7 +1,7 @@
 /* eslint-disable no-process-env */
 /* eslint-disable max-lines */
 import axios from "axios";
-import FormData from "form-data";
+// import FormData from "form-data";
 
 const token = process.env.STRAPI_API_TOKEN;
 
@@ -150,7 +150,7 @@ export const getHomepage = async () => {
                   unit
                   plan
                   recommended
-                  unfixed
+                  reversed
                   link
                   linkTitle
                 }
@@ -322,7 +322,7 @@ export const getPageBySlug = async slug => {
                   unit
                   plan
                   recommended
-                  unfixed
+                  reversed
                   link
                   linkTitle
                 }
