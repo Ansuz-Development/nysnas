@@ -19,7 +19,7 @@
     "plan": {
       "type": "text"
     },
-    "unfixed": {
+    "reversed": {
       "type": "boolean",
       "default": false
     },
