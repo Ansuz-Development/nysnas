@@ -7,6 +7,7 @@ const GallerySection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/
 const PricingSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/pricings/PricingSection"));
 const ServiceSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/services/ServiceSection"));
 const PreviewSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/previews/PreviewSection"));
+const QuoteSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/quotes/QuoteSection"));
 
 const renderSection = data => {
   switch (data.__typename) {
@@ -22,6 +23,8 @@ const renderSection = data => {
     return <ServiceSection data={data} />;
   case "ComponentSectionsPreviewSection":
     return <PreviewSection data={data} />;
+  case "ComponentSectionsQuoteSection":
+    return <QuoteSection data={data} />;
   default:
     return null;
   }

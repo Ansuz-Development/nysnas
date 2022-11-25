@@ -1,13 +1,14 @@
 /* eslint-disable no-process-env */
 /* eslint-disable max-lines */
 import axios from "axios";
+import qs from "qs";
 // import FormData from "form-data";
 
 const token = process.env.STRAPI_API_TOKEN;
 
 export const DOMAIN = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
-const apiInstance = axios.create({
+const strapiApi = axios.create({
   baseURL: `${DOMAIN}/api`,
   headers: {Authorization: `Bearer ${token}`},
 });
@@ -371,6 +372,30 @@ export const getPageBySlug = async slug => {
                   link
                 }
               }
+              ...on ComponentSectionsQuoteSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                photo {
+                  data {
+                    attributes {
+                      url
+                      formats
+                    }
+                  }
+                }
+                quotes {
+                  quote
+                  person
+                }
+                links {
+                  title
+                  link
+                }
+              }
             }
           }
         }
@@ -382,6 +407,33 @@ export const getPageBySlug = async slug => {
 
   return data?.pages?.data?.[0];
 };
+
+// export const getPageBySlug = async (creatorId, slug) => {
+//   try {
+//     const res = await strapiApi.get("pages", {
+//       params: {
+//         filters: {slug},
+//         populate: [
+//           "sections",
+//           "sections.links",
+//           "sections.photo",
+//           "sections.photos",
+//           "sections.services",
+//           "sections.services.photo",
+//           "sections.quotes",
+//           "sections.stats",
+//           "sections.plans",
+//           "sections.document",
+//         ],
+//       },
+//       paramsSerializer: params => qs.stringify(params),
+//     });
+
+//     return res.data?.data?.[0];
+//   } catch (error) {
+//     return null;
+//   }
+// };
 
 export const getNavbar = async () => {
   const data = await fetchAPI(
