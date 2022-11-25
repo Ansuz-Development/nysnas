@@ -40,7 +40,8 @@
         "sections.quote-section",
         "sections.service-section",
         "sections.text-section",
-        "sections.stats-section"
+        "sections.stats-section",
+        "sections.preview-section"
       ]
     }
   }
