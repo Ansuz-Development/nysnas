@@ -557,3 +557,40 @@ export const getServiceGroups = async () => {
 
   return data?.serviceGroups?.data;
 };
+
+export const getServiceModal = async () => {
+  const data = await fetchAPI(
+    `
+    query getServiceModal {
+      serviceModal {
+        data {
+          attributes {
+            title
+            subtitle
+            services {
+              data {
+                id
+                attributes {
+                  name
+                  photo {
+                    data {
+                      attributes {
+                        url
+                        formats
+                        previewUrl
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `,
+    {variables: {}},
+  );
+
+  return data?.serviceModal?.data;
+};

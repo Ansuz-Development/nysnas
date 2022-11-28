@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 import {getAttr} from "@ansuzdev/nexi/dist/utils";
 import SEOItem from "@ansuzdev/nexi/dist/comps/items/common/SEOItem";
-import {getFooter, getHomepage, getNavbar} from "../libs/api";
+import {getFooter, getHomepage, getNavbar, getServiceModal} from "../libs/api";
 import renderSection from "../comps/sections";
 import BasePage from "../comps/BasePage";
 
-const HomePage = ({homepage, navbar, footer}) => (
-  <BasePage path="/" navbar={navbar} footer={footer}>
+const HomePage = ({homepage, navbar, footer, serviceModal}) => (
+  <BasePage path="/" navbar={navbar} footer={footer} serviceModal={serviceModal}>
     <SEOItem
       title="Title"
       description="My description"
@@ -29,12 +29,14 @@ HomePage.propTypes = {
   navbar: PropTypes.object.isRequired,
   footer: PropTypes.object.isRequired,
   homepage: PropTypes.object.isRequired,
+  serviceModal: PropTypes.object.isRequired,
 };
 
 export const getStaticProps = async () => {
   const homepage = (await getHomepage() || {});
   const navbar = (await getNavbar() || {});
   const footer = (await getFooter() || {});
+  const serviceModal = (await getServiceModal() || {});
 
-  return {props: {homepage, navbar, footer}};
+  return {props: {homepage, navbar, footer, serviceModal}};
 };

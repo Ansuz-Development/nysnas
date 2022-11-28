@@ -7,7 +7,7 @@ import ServiceModal from "./ServiceModal";
 const Navbar = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/navbars/Navbar"));
 const Footer = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/footers/Footer"));
 
-const BasePage = ({path, navbar, footer, children}) => {
+const BasePage = ({path, navbar, footer, serviceModal, children}) => {
   const router = useRouter();
 
   const estimation = useMemo(() => {
@@ -31,6 +31,7 @@ const BasePage = ({path, navbar, footer, children}) => {
       </main>
       {Boolean(footer) && <Footer data={footer} />}
       <ServiceModal
+        data={serviceModal}
         isOpen={Boolean(estimation)}
         onClose={handleModalClosed}
       />
@@ -42,6 +43,7 @@ BasePage.defaultProps = {
   path: "",
   navbar: null,
   footer: null,
+  serviceModal: null,
   children: null,
 };
 
@@ -49,6 +51,7 @@ BasePage.propTypes = {
   path: PropTypes.string,
   navbar: PropTypes.object,
   footer: PropTypes.object,
+  serviceModal: PropTypes.object,
   children: PropTypes.node,
 };
 

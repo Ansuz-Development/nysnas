@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import NextImage from "next/legacy/image";
 
 import Link from "next/link";
+import {getAttr, getFormatUrl, getUrl} from "@ansuzdev/nexi/dist/utils";
 import CloseIcon from "../../assets/icons/close.svg";
 
 const customStylesModal = {
@@ -27,71 +28,81 @@ const customStylesModal = {
   },
 };
 
-const ServiceModal = ({isOpen, onClose}) => (
-  <Modal
-    isOpen={isOpen}
-    style={customStylesModal}
-    ariaHideApp={false}
-  >
-    <div
-      className="absolute top-4 right-8 cursor-pointer"
-      onClick={onClose}
+const ServiceModal = ({data, isOpen, onClose}) => {
+  const title = getAttr(data, "title");
+  const subtitle = getAttr(data, "subtitle");
+  const services = getAttr(data, "services", "data");
+
+  return (
+    <Modal
+      isOpen={isOpen}
+      style={customStylesModal}
+      ariaHideApp={false}
     >
-      <CloseIcon className="w-8 h-8" />
-    </div>
-    <div className="space-y-8">
-      <h3 className="text-white text-center">Mon depannage concerne</h3>
-      <div className="grid grid-cols-3 gap-4">
-        <div className="p-4 bg-white rounded">
-          <Link href="/questionnaire/1">
-            <div className="relative w-full h-40">
-              <NextImage
-                src={"https://cms.hestiaecobat.fr/uploads/logo_electricite_1ec19b0fe4.png"}
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-              />
-            </div>
-          </Link>
+      <div
+        className="absolute top-4 right-8 cursor-pointer"
+        onClick={onClose}
+      >
+        <CloseIcon className="w-8 h-8" />
+      </div>
+      <div className="space-y-8">
+        <h3 className="text-white text-center">
+          {title}
+        </h3>
+        <div className="grid grid-cols-3 gap-4">
+          {
+            services?.map(service => {
+              console.log(service);
+              const id = getAttr(service, "id");
+              const photo = getAttr(service, "photo");
+              const url = getUrl(photo, "url");
+              const thumbnailUrl = getFormatUrl(photo, "thumbnail");
+
+              console.log(url, thumbnailUrl);
+
+              return (
+                <div key={id} className="p-4 bg-white rounded">
+                  <Link href={`/questionnaire/${id}`}>
+                    <div className="relative w-full h-40">
+                      {Boolean(url) && (
+                        <NextImage
+                          src={url}
+                          layout="fill"
+                          objectFit="contain"
+                          objectPosition="center"
+                          placeholder="blur"
+                          blurDataURL={thumbnailUrl}
+                          unoptimized
+                        />
+                      )}
+                      <p>
+                        {getAttr(service, "name")}
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })
+          }
         </div>
-        <div className="p-4 bg-white rounded">
-          <Link href="/questionnaire/2">
-            <div className="relative w-full h-40">
-              <NextImage
-                src={"https://cms.hestiaecobat.fr/uploads/logo_electricite_1ec19b0fe4.png"}
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-              />
-            </div>
-          </Link>
-        </div>
-        <div className="p-4 bg-white rounded">
-          <div className="relative w-full h-40">
-            <NextImage
-              src={"https://cms.hestiaecobat.fr/uploads/logo_electricite_1ec19b0fe4.png"}
-              layout="fill"
-              objectFit="contain"
-              objectPosition="center"
-            />
-          </div>
+        <div>
+          <p className="body1 text-white text-center">
+            {subtitle}
+          </p>
         </div>
       </div>
-      <div>
-        <p className="body1 text-white text-center">
-          for emergency, please contact us via hotline {process.env.NEXT_PUBLIC_CONTACT_PHONE}
-        </p>
-      </div>
-    </div>
-  </Modal>
-);
+    </Modal>
+  );
+};
 
 ServiceModal.defaultProps = {
+  data: null,
   isOpen: false,
   onClose: undefined,
 };
 
 ServiceModal.propTypes = {
+  data: PropTypes.object,
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
 };

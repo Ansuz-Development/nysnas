@@ -46,6 +46,11 @@
     },
     "answer": {
       "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "default": 0
     }
   }
 }
