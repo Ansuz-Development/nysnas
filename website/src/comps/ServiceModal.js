@@ -63,19 +63,21 @@ const ServiceModal = ({data, isOpen, onClose}) => {
               return (
                 <div key={id} className="p-4 bg-white rounded">
                   <Link href={`/questionnaire/${id}`}>
-                    <div className="relative w-full h-40">
-                      {Boolean(url) && (
-                        <NextImage
-                          src={url}
-                          layout="fill"
-                          objectFit="contain"
-                          objectPosition="center"
-                          placeholder="blur"
-                          blurDataURL={thumbnailUrl}
-                          unoptimized
-                        />
-                      )}
-                      <p>
+                    <div>
+                      <div className="relative w-full h-40">
+                        {Boolean(url) && (
+                          <NextImage
+                            src={url}
+                            layout="fill"
+                            objectFit="contain"
+                            objectPosition="center"
+                            placeholder="blur"
+                            blurDataURL={thumbnailUrl}
+                            unoptimized
+                          />
+                        )}
+                      </div>
+                      <p className="body1 text-center font-medium">
                         {getAttr(service, "name")}
                       </p>
                     </div>
