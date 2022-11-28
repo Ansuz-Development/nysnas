@@ -16,7 +16,7 @@
       "type": "string"
     },
     "subtitle": {
-      "type": "string"
+      "type": "text"
     },
     "services": {
       "type": "relation",
