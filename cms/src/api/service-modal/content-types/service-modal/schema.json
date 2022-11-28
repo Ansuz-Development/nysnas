@@ -19,9 +19,9 @@
       "type": "string"
     },
     "services": {
-      "type": "component",
-      "repeatable": true,
-      "component": "items.service-item"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-group.service-group"
     }
   }
 }
