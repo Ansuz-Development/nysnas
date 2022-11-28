@@ -17,7 +17,17 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/u,
       // include: [path.resolve(__dirname, "assets/icons")],
-      use: ["@svgr/webpack"],
+      use: [{
+        loader: "@svgr/webpack",
+        options: {
+          svgoConfig: {
+            plugins: [{
+              name: "removeViewBox",
+              active: false,
+            }],
+          },
+        },
+      }],
     });
 
     return config;
