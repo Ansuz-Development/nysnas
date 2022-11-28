@@ -38,6 +38,19 @@ const QuestionPage = ({serviceGroup, navbar, footer, serviceModal}) => {
           <div className="grid lg:grid-cols-12 gap-6">
             <div className="lg:col-span-7 space-y-6">
               <div>
+                {Boolean(subGroups) && (
+                  subGroups.map(group => {
+                    const id = getAttr(group, "id");
+                    return (
+                      <Link key={id} href={`/questionnaire/${id}`}>
+                        <div className="flex justify-between items-center py-3 space-x-2 border-b border-neutral-200 hover:font-medium">
+                          <span className="body1 text-secondary-600">{getAttr(group, "name")}</span>
+                          <NavigateIcon className="fill-secondary-600" />
+                        </div>
+                      </Link>
+                    );
+                  })
+                )}
                 {Boolean(services) && (
                   services.map(service => {
                     const id = getAttr(service, "id");
@@ -47,19 +60,6 @@ const QuestionPage = ({serviceGroup, navbar, footer, serviceModal}) => {
                           <span className="body1 text-secondary-600">
                             {getAttr(service, "answer") || getAttr(service, "name")}
                           </span>
-                          <NavigateIcon className="fill-secondary-600" />
-                        </div>
-                      </Link>
-                    );
-                  })
-                )}
-                {Boolean(subGroups) && (
-                  subGroups.map(group => {
-                    const id = getAttr(group, "id");
-                    return (
-                      <Link key={id} href={`/questionnaire/${id}`}>
-                        <div className="flex justify-between items-center py-3 space-x-2 border-b border-neutral-200 hover:font-medium">
-                          <span className="body1 text-secondary-600">{getAttr(group, "name")}</span>
                           <NavigateIcon className="fill-secondary-600" />
                         </div>
                       </Link>

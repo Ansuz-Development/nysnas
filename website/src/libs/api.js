@@ -396,6 +396,22 @@ export const getPageBySlug = async slug => {
                   link
                 }
               }
+              ...on ComponentSectionsContactSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                photo {
+                  data {
+                    attributes {
+                      url
+                      formats
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -513,7 +529,7 @@ export const getServiceGroup = async id => {
                 id
               }
             }
-            subGroups {
+            subGroups(sort:"order:asc") {
               data {
                 id
                 attributes {
@@ -521,7 +537,7 @@ export const getServiceGroup = async id => {
                 }
               }
             }
-            services {
+            services(sort:"order:asc") {
               data {
                 id
                 attributes {
@@ -593,4 +609,60 @@ export const getServiceModal = async () => {
   );
 
   return data?.serviceModal?.data;
+};
+
+export const getService = async id => {
+  const data = await fetchAPI(
+    `
+    query getService($id:ID) {
+      service(id:$id) {
+        data {
+          id
+          attributes {
+            name
+            answer
+            pricing
+            plan
+            note
+            description
+            order
+            group {
+              data {
+                id
+              }
+            }
+            photo {
+              data {
+                attributes {
+                  url
+                  formats
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `,
+    {variables: {id}},
+  );
+
+  return data?.service?.data;
+};
+
+export const getServices = async () => {
+  const data = await fetchAPI(
+    `
+    query {
+      services {
+        data {
+          id
+        }
+      }
+    }
+    `,
+    {variables: {}},
+  );
+
+  return data?.services?.data;
 };

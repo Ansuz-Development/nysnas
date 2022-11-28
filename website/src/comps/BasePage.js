@@ -26,7 +26,7 @@ const BasePage = ({path, navbar, footer, serviceModal, children}) => {
   return (
     <>
       {Boolean(navbar) && <Navbar data={navbar} active={path} />}
-      <main className="min-h-[500px]">
+      <main className="min-h-[550px]">
         {children}
       </main>
       {Boolean(footer) && <Footer data={footer} />}
