@@ -30,7 +30,10 @@ const getToken = req => {
 const revalidate = async (hook, res) => {
   if (hook.model === "homepage") {
     res.revalidate("/");
-  } else if (hook.model === "navbar" || hook.model === "footer") {
+  } else if (
+    hook.model === "navbar"
+    || hook.model === "footer"
+    || hook.model === "servicemodal") {
     res.revalidate("/");
     const pages = (await getPages()) || [];
     for (const page of pages) {

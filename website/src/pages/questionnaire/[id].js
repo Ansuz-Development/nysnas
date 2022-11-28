@@ -5,7 +5,7 @@ import {getAttr} from "@ansuzdev/nexi/dist/utils";
 import SEOItem from "@ansuzdev/nexi/dist/comps/items/common/SEOItem";
 import Link from "next/link";
 import {useRouter} from "next/router";
-import {getFooter, getNavbar, getServiceGroup, getServiceGroups} from "../../libs/api";
+import {getFooter, getNavbar, getServiceGroup, getServiceGroups, getServiceModal} from "../../libs/api";
 import BasePage from "../../comps/BasePage";
 
 import NavigateIcon from "../../../assets/icons/navigate.svg";
@@ -14,7 +14,7 @@ import PhoneIcon from "../../../assets/icons/phone.svg";
 // eslint-disable-next-line no-process-env
 const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE;
 
-const QuestionPage = ({serviceGroup, navbar, footer}) => {
+const QuestionPage = ({serviceGroup, navbar, footer, serviceModal}) => {
   const router = useRouter();
 
   const parentId = getAttr(serviceGroup, "parent", "id");
@@ -22,7 +22,11 @@ const QuestionPage = ({serviceGroup, navbar, footer}) => {
   const services = getAttr(serviceGroup, "services", "data");
 
   return (
-    <BasePage navbar={navbar} footer={footer}>
+    <BasePage
+      navbar={navbar}
+      footer={footer}
+      serviceModal={serviceModal}
+    >
       <SEOItem
         title="Title"
         description="My description"
@@ -102,6 +106,7 @@ QuestionPage.propTypes = {
   navbar: PropTypes.object.isRequired,
   footer: PropTypes.object.isRequired,
   serviceGroup: PropTypes.object.isRequired,
+  serviceModal: PropTypes.object.isRequired,
 };
 
 export const getStaticProps = async ({params}) => {
@@ -113,8 +118,9 @@ export const getStaticProps = async ({params}) => {
 
   const navbar = (await getNavbar() || {});
   const footer = (await getFooter() || {});
+  const serviceModal = (await getServiceModal() || {});
 
-  return {props: {serviceGroup, navbar, footer}};
+  return {props: {serviceGroup, navbar, footer, serviceModal}};
 };
 
 export const getStaticPaths = async () => {

@@ -3,12 +3,17 @@ import PropTypes from "prop-types";
 
 import {getAttr} from "@ansuzdev/nexi/dist/utils";
 import SEOItem from "@ansuzdev/nexi/dist/comps/items/common/SEOItem";
-import {getFooter, getNavbar, getPageBySlug, getPages} from "../libs/api";
+import {getFooter, getNavbar, getPageBySlug, getPages, getServiceModal} from "../libs/api";
 import renderSection from "../comps/sections";
 import BasePage from "../comps/BasePage";
 
-const SlugPage = ({page, navbar, footer}) => (
-  <BasePage path={`/${getAttr(page, "slug")}`} navbar={navbar} footer={footer}>
+const SlugPage = ({page, navbar, footer, serviceModal}) => (
+  <BasePage
+    path={`/${getAttr(page, "slug")}`}
+    navbar={navbar}
+    footer={footer}
+    serviceModal={serviceModal}
+  >
     <SEOItem
       title="Title"
       description="My description"
@@ -29,6 +34,7 @@ SlugPage.propTypes = {
   navbar: PropTypes.object.isRequired,
   footer: PropTypes.object.isRequired,
   page: PropTypes.object.isRequired,
+  serviceModal: PropTypes.object.isRequired,
 };
 
 export const getStaticProps = async ({params}) => {
@@ -40,8 +46,9 @@ export const getStaticProps = async ({params}) => {
 
   const navbar = (await getNavbar() || {});
   const footer = (await getFooter() || {});
+  const serviceModal = (await getServiceModal() || {});
 
-  return {props: {page, navbar, footer}};
+  return {props: {page, navbar, footer, serviceModal}};
 };
 
 export const getStaticPaths = async () => {
