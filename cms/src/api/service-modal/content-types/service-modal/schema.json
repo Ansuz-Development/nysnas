@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "service_modals",
+  "info": {
+    "singularName": "service-modal",
+    "pluralName": "service-modals",
+    "displayName": "ServiceModal",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.service-item"
+    }
+  }
+}
