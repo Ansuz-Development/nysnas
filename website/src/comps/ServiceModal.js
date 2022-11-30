@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Modal from "react-modal";
-import NextImage from "next/legacy/image";
+import GhostImage from "@ansuzdev/nexi/dist/comps/items/images/GhostImage";
 
 import Link from "next/link";
 import {getAttr, getFormatUrl, getUrl} from "@ansuzdev/nexi/dist/utils";
@@ -52,31 +52,24 @@ const ServiceModal = ({data, isOpen, onClose}) => {
         <div className="grid grid-cols-3 gap-4">
           {
             services?.map(service => {
-              console.log(service);
               const id = getAttr(service, "id");
               const photo = getAttr(service, "photo");
               const url = getUrl(photo, "url");
               const thumbnailUrl = getFormatUrl(photo, "thumbnail");
 
-              console.log(url, thumbnailUrl);
-
               return (
                 <div key={id} className="p-4 bg-white rounded">
                   <Link href={`/questionnaire/${id}`}>
                     <div>
-                      <div className="relative w-full h-40">
-                        {Boolean(url) && (
-                          <NextImage
-                            src={url}
-                            layout="fill"
-                            objectFit="contain"
-                            objectPosition="center"
-                            placeholder="blur"
-                            blurDataURL={thumbnailUrl}
-                            unoptimized
-                          />
-                        )}
-                      </div>
+                      <GhostImage
+                        className="relative w-full h-40"
+                        src={url}
+                        layout="fill"
+                        objectFit="contain"
+                        objectPosition="center"
+                        placeholder="blur"
+                        blurDataURL={thumbnailUrl}
+                      />
                       <p className="body1 text-center font-medium">
                         {getAttr(service, "name")}
                       </p>

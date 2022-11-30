@@ -657,6 +657,9 @@ export const getServices = async () => {
       services {
         data {
           id
+          attributes {
+            name
+          }
         }
       }
     }

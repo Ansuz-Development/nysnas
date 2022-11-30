@@ -70,7 +70,7 @@ const QuestionPage = ({serviceGroup, navbar, footer, serviceModal}) => {
               <div>
                 {Boolean(parentId) && (
                   <Link href={`/questionnaire/${parentId}`}>
-                    <div className="flex items-center py-2.5 space-x-2">
+                    <div className="flex items-center space-x-1.5 h-12">
                       <NavigateIcon className="fill-black-secondary rotate-180" />
                       <span className="button2 text-black-secondary">Précédent</span>
                     </div>
