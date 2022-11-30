@@ -35,7 +35,7 @@ const ServicePage = ({service, navbar, footer, serviceModal}) => {
           <h3 className="text-center">{getAttr(service, "name")}</h3>
 
           <div className="grid xl:grid-cols-12 gap-6">
-            <div className="xl:col-start-2 xl:col-span-10 py-6 bg-neutral-100">
+            <div className="xl:col-start-2 xl:col-span-10 py-6 bg-neutral-50">
               <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-4 lg:space-x-6 md:divide-x">
                 <div className="shrink-0 px-4 xl:px-6">
                   <GhostImage
