@@ -2,7 +2,8 @@
   "collectionName": "components_sections_header_sections",
   "info": {
     "displayName": "HeaderSection",
-    "icon": "archway"
+    "icon": "archway",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -19,19 +20,25 @@
       "type": "string"
     },
     "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "links": {
       "type": "component",
       "repeatable": true,
       "component": "items.link-item"
+    },
+    "slides": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.slide-item"
     }
   }
 }
