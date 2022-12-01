@@ -11,8 +11,6 @@ const QuoteSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/qu
 const ContactSection = dynamic(() => import("./ContactSection"));
 
 const renderSection = data => {
-  console.log(data.__typename);
-
   switch (data.__typename) {
   case "ComponentSectionsHeaderSection":
     return <HeaderSection data={data} />;

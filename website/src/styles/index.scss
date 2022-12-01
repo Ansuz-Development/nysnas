@@ -9,26 +9,32 @@ body {
 
 @layer base {
   h1 {
+    font-family: "Roboto Slab", serif !important;
     @apply text-8xl font-light leading-snug tracking-[-1.5px];
   }
 
   h2 {
+    font-family: "Roboto Slab", serif !important;
     @apply text-6xl font-light leading-snug tracking-[-0.5px];
   }
 
   h3 {
+    font-family: "Roboto Slab", serif !important;
     @apply text-5xl leading-snug;
   }
 
   h4 {
+    font-family: "Roboto Slab", serif !important;
     @apply text-4xl leading-snug tracking-[0.25px];
   }
 
   h5 {
+    font-family: "Roboto Slab", serif !important;
     @apply text-2xl leading-normal;
   }
 
   h6 {
+    font-family: "Roboto Slab", serif !important;
     @apply text-xl font-medium leading-normal tracking-[0.15px];
   }
 

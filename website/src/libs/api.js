@@ -78,6 +78,19 @@ export const getHomepage = async () => {
                   title
                   link
                 }
+                slides {
+                  id
+                  videoLink
+                  duration
+                  photo {
+                    data {
+                      attributes {
+                        url
+                        formats
+                      }
+                    }
+                  }
+                }
               }
               ...on ComponentSectionsStatsSection {
                 id
@@ -249,6 +262,19 @@ export const getPageBySlug = async slug => {
                 links {
                   title
                   link
+                }
+                slides {
+                  id
+                  videoLink
+                  duration
+                  photo {
+                    data {
+                      attributes {
+                        url
+                        formats
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsStatsSection {
