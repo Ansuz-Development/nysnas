@@ -1,13 +1,5 @@
 module.exports = ({env}) => ({
-  upload: {
-    config: {
-      providerOptions: {
-        localServer: {
-          maxage: 300000
-        },
-      },
-    },
-  },
+  upload: {config: {providerOptions: {localServer: {maxage: 300000}}}},
   ckeditor: {
     enabled: true,
     config: {

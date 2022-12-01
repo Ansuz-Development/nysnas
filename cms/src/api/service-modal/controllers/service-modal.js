@@ -1,9 +1,7 @@
-'use strict';
-
 /**
  * service-modal controller
  */
 
-const { createCoreController } = require('@strapi/strapi').factories;
+const {createCoreController} = require("@strapi/strapi").factories;
 
-module.exports = createCoreController('api::service-modal.service-modal');
+module.exports = createCoreController("api::service-modal.service-modal");
