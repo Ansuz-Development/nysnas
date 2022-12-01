@@ -2,16 +2,18 @@
   "collectionName": "components_items_slide_items",
   "info": {
     "displayName": "SlideItem",
-    "icon": "photo-video"
+    "icon": "photo-video",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "photo": {
-      "allowedTypes": [
-        "videos"
-      ],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "videoLink": {
       "type": "text"
