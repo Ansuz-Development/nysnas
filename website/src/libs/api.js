@@ -102,6 +102,7 @@ export const getHomepage = async () => {
                 stats {
                   label
                   value
+                  background
                 }
               }
               ...on ComponentSectionsServiceSection {
@@ -287,6 +288,7 @@ export const getPageBySlug = async slug => {
                 stats {
                   label
                   value
+                  background
                 }
               }
               ...on ComponentSectionsServiceSection {

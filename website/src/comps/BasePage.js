@@ -2,6 +2,7 @@ import React, {useCallback, useMemo} from "react";
 import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
 import {useRouter} from "next/router";
+import Script from "next/script";
 import ServiceModal from "./ServiceModal";
 
 const Navbar = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/navbars/Navbar"));
@@ -27,6 +28,20 @@ const BasePage = ({path, navbar, footer, serviceModal, children}) => {
 
   return (
     <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+      `}
+      </Script>
+
       {Boolean(navbar) && <Navbar data={navbar.attributes} active={path} />}
       <main className="min-h-[550px]">
         {children}
