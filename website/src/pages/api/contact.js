@@ -12,6 +12,8 @@ const apiRoute = nextConnect({
 });
 
 apiRoute.post(async (req, res) => {
+  console.log("Data:", req.body);
+
   const verified = await verifyToken(req.body.token);
 
   if (!verified) {
@@ -24,8 +26,9 @@ apiRoute.post(async (req, res) => {
     phone: req.body.phone,
     address: req.body.address,
     zipcode: req.body.zipcode,
-    date: req.body.date,
-    time: req.body.time,
+    date: req.body.date || undefined,
+    time: req.body.time ? `${req.body.time}:00.000` : undefined,
+    service: req.body.service,
   });
 
   res.json(data);

@@ -2,7 +2,8 @@
   "collectionName": "components_sections_contact_sections",
   "info": {
     "displayName": "ContactSection",
-    "icon": "phone-square"
+    "icon": "phone-square",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -19,14 +20,26 @@
       "type": "string"
     },
     "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "successTitle": {
+      "type": "string"
+    },
+    "successMessage": {
+      "type": "text"
+    },
+    "successLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "items.link-item"
     }
   }
 }

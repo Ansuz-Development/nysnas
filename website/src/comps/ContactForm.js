@@ -14,7 +14,7 @@ import {fetcher} from "../helpers/utils";
 import DateIcon from "../../assets/icons/date.svg";
 import TimeIcon from "../../assets/icons/time.svg";
 
-const ContactForm = props => {
+const ContactForm = ({onSuccess}) => {
   const {executeRecaptcha} = useGoogleReCaptcha();
   const router = useRouter();
   const [processing, setProcessing] = useState(false);
@@ -65,21 +65,21 @@ const ContactForm = props => {
           zipcode: formData.zipcode,
           date: formData.date,
           time: formData.time,
-          serviceId: formData.service?.value,
+          service: formData.service?.value,
           confirmed: formData.confirmed,
         };
 
         await axios.post("/api/contact", data);
+
+        if (onSuccess) onSuccess();
       } catch (err) {
         console.log(err);
       } finally {
         setProcessing(false);
       }
     },
-    [executeRecaptcha, processing],
+    [executeRecaptcha, onSuccess, processing],
   );
-
-  console.log("Errors:", errors);
 
   return (
     <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
@@ -97,7 +97,14 @@ const ContactForm = props => {
           <TextField
             label="E-mail*"
             placeholder="E-mail"
-            {...register("email", {required: "L'e-mail est obligatoire"})}
+            {...register("email", {
+              required: "L'e-mail est obligatoire",
+              pattern: {
+                // eslint-disable-next-line prefer-named-capture-group
+                value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/ui,
+                message: "L'e-mail n'est pas valide",
+              },
+            })}
             error={errors?.email}
             helper={errors?.email?.message}
           />
@@ -182,6 +189,8 @@ const ContactForm = props => {
   );
 };
 
-ContactForm.propTypes = {};
+ContactForm.defaultProps = {onSuccess: undefined};
+
+ContactForm.propTypes = {onSuccess: PropTypes.func};
 
 export default ContactForm;

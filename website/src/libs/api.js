@@ -706,10 +706,11 @@ export const createContactMessage = async ({
   zipcode,
   date,
   time,
+  service,
 }) => {
   const data = await fetchAPI(
     `
-    mutation createContactMessage(
+    mutation createRequest(
       $name: String,
       $email: String,
       $phone: String,
@@ -717,6 +718,7 @@ export const createContactMessage = async ({
       $zipcode: String,
       $date: Date,
       $time: Time,
+      $service:ID,
     ) {
       createContactMessage(data:{
         name:$name,
@@ -726,6 +728,7 @@ export const createContactMessage = async ({
         zipcode:$zipcode,
         date:$date,
         time:$time,
+        service:$service
       }) {
         data {
           id
@@ -747,9 +750,10 @@ export const createContactMessage = async ({
         zipcode,
         date,
         time,
+        service,
       },
     },
   );
 
-  return data?.createContactRequest.data;
+  return data?.createContactMessage.data;
 };
