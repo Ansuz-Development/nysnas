@@ -47,6 +47,7 @@ const revalidate = async (hook, res) => {
 export default async function handler(req, res) {
   const token = getToken(req);
   // Check for secret to confirm this is a valid request
+  // eslint-disable-next-line no-process-env
   if (token !== process.env.SECRET_HOOK_TOKEN) {
     return res.status(401).json({message: "Invalid token"});
   }
@@ -78,6 +79,7 @@ export default async function handler(req, res) {
 
     return res.json({revalidated: true});
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.log(err);
     // If there was an error, Next.js will continue
     // to show the last successfully generated page

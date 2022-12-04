@@ -66,6 +66,7 @@ const ContactForm = ({onSuccess}) => {
           date: formData.date,
           time: formData.time,
           service: formData.service?.value,
+          serviceName: formData.service?.label,
           confirmed: formData.confirmed,
         };
 
@@ -127,8 +128,8 @@ const ContactForm = ({onSuccess}) => {
         </div>
         <div className="md:col-span-2">
           <TextField
-            label="Code postale"
-            placeholder="Code postale"
+            label="Code postal"
+            placeholder="Code postal"
             {...register("zipcode")}
           />
         </div>

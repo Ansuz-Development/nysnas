@@ -1,6 +1,8 @@
 import nextConnect from "next-connect";
+import ejs from "ejs";
 import {createContactMessage} from "../../libs/api";
 import {verifyToken} from "../../libs/recaptcha";
+import {mailTemplate, sendEmail} from "../../libs/sendmail";
 
 const apiRoute = nextConnect({
   onError(error, req, res) {
@@ -12,8 +14,6 @@ const apiRoute = nextConnect({
 });
 
 apiRoute.post(async (req, res) => {
-  console.log("Data:", req.body);
-
   const verified = await verifyToken(req.body.token);
 
   if (!verified) {
@@ -30,6 +30,17 @@ apiRoute.post(async (req, res) => {
     time: req.body.time ? `${req.body.time}:00.000` : undefined,
     service: req.body.service,
   });
+
+  // send email to the admin
+  const emailContent = ejs.render(mailTemplate, req.body);
+  sendEmail(
+    // eslint-disable-next-line no-process-env
+    process.env.ADMIN_EMAIL,
+    "Nouveau message de contact",
+    emailContent,
+    emailContent,
+  // eslint-disable-next-line no-console
+  ).catch(console.log);
 
   res.json(data);
 });
