@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, {useCallback, useMemo, useState} from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import PropTypes from "prop-types";
 import TextField from "@ansuzdev/nexi/dist/comps/items/inputs/TextField";
 import Select from "@ansuzdev/nexi/dist/comps/items/inputs/Select";
@@ -18,6 +18,7 @@ const ContactForm = ({onSuccess}) => {
   const {executeRecaptcha} = useGoogleReCaptcha();
   const router = useRouter();
   const [processing, setProcessing] = useState(false);
+  const serviceId = router.query?.service;
 
   const {data: services, error} = useSWR(
     router.isReady ? "/api/service" : null,
@@ -81,6 +82,15 @@ const ContactForm = ({onSuccess}) => {
     },
     [executeRecaptcha, onSuccess, processing],
   );
+
+  useEffect(() => {
+    if (serviceId && options?.length) {
+      const selected = options.find(e => e.value === serviceId);
+      if (selected) {
+        setValue("service", selected);
+      }
+    }
+  }, [options, serviceId, setValue]);
 
   return (
     <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
