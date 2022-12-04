@@ -83,8 +83,8 @@ const ContactForm = ({onSuccess}) => {
 
   return (
     <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid grid-cols-2 gap-3">
-        <div className="col-span-2">
+      <div className="grid md:grid-cols-2 gap-3">
+        <div className="md:col-span-2">
           <TextField
             label="Votre nom*"
             placeholder="Votre nom"
@@ -118,21 +118,21 @@ const ContactForm = ({onSuccess}) => {
             helper={errors?.phone?.message}
           />
         </div>
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <TextField
             label="Adresse"
             placeholder="Adresse"
             {...register("address")}
           />
         </div>
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <TextField
             label="Code postale"
             placeholder="Code postale"
             {...register("zipcode")}
           />
         </div>
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <Controller
             control={control}
             name="service"

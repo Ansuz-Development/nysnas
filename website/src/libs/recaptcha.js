@@ -1,17 +1,14 @@
 import axios from "axios";
 import FormData from "form-data";
 
+// eslint-disable-next-line no-process-env
 const secret = process.env.GOOGLE_RECAPTCHA_SECRET_KEY;
 
 export const verifyToken = async token => {
   try {
-    console.log(secret, token);
-
     const data = new FormData();
     data.append("secret", secret);
     data.append("response", token);
-
-    console.log(data);
 
     const res = await axios({
       method: "post",
@@ -22,7 +19,6 @@ export const verifyToken = async token => {
 
     return res.data.success;
   } catch (error) {
-    console.log(error);
     return false;
   }
 };

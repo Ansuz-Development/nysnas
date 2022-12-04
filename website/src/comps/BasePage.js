@@ -1,3 +1,4 @@
+/* eslint-disable no-process-env */
 import React, {useCallback, useMemo} from "react";
 import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
@@ -10,8 +11,6 @@ const Footer = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/footers/
 
 const BasePage = ({path, navbar, footer, serviceModal, children}) => {
   const router = useRouter();
-
-  console.log(navbar);
 
   const estimation = useMemo(() => {
     const hash = router.asPath?.split("#")?.[1] || "";

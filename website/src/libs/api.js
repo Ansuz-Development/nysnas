@@ -439,6 +439,20 @@ export const getPageBySlug = async slug => {
                     }
                   }
                 }
+                successTitle
+                successMessage
+                successLink {
+                  title
+                  link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
               }
             }
           }

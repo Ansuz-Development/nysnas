@@ -16,7 +16,7 @@ const customStylesModal = {
     width: "92%",
     maxHeight: "95%",
     height: "fit-content",
-    padding: "40px",
+    padding: "32px",
     border: 0,
     borderRadius: "12px",
     outLine: "none",
@@ -40,16 +40,16 @@ const ServiceModal = ({data, isOpen, onClose}) => {
       ariaHideApp={false}
     >
       <div
-        className="absolute top-4 right-8 cursor-pointer"
+        className="absolute top-4 right-4 cursor-pointer"
         onClick={onClose}
       >
         <CloseIcon className="w-8 h-8" />
       </div>
-      <div className="space-y-8">
-        <h3 className="text-white text-center">
+      <div className="space-y-6 md:space-y-8">
+        <h3 className="subtitle1 md:text-5xl md:leading-snug text-white text-center">
           {title}
         </h3>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-4">
           {
             services?.map(service => {
               const id = getAttr(service, "id");
@@ -58,11 +58,11 @@ const ServiceModal = ({data, isOpen, onClose}) => {
               const thumbnailUrl = getFormatUrl(photo, "thumbnail");
 
               return (
-                <div key={id} className="p-4 bg-white rounded">
+                <div key={id} className="p-2 md:p-4 bg-white rounded">
                   <Link href={`/questionnaire/${id}`}>
-                    <div>
+                    <div className="space-y-2">
                       <GhostImage
-                        className="relative w-full h-40"
+                        className="relative w-full h-20 md:h-40"
                         src={url}
                         layout="fill"
                         objectFit="contain"

@@ -21,73 +21,78 @@ const ContactSection = ({data}) => {
   const [success, setSuccess] = useState(false);
 
   const onSuccess = useCallback(() => {
+    window.scrollTo({top: 0, behavior: "smooth"});
     setSuccess(true);
   }, []);
 
   return (
     <section className="py-12">
       <div className="container mx-auto">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <div className="space-y-8">
-              {
-                success
-                  ? (
-                    <>
-                      <div className="space-y-6">
-                        {Boolean(successTitle) && (
-                          <h3>{successTitle}</h3>
-                        )}
-                        {Boolean(successMessage) && (
-                          <p className="successMessage1 text-black-secondary">
-                            {subtitle}
-                          </p>
-                        )}
-                      </div>
-                      <div>
-                        {
-                          Boolean(successLink) && (
-                            <Button
-                              link
-                              href={getAttr(successLink, "link")}
-                              label={getAttr(successLink, "title")}
-                            />
-                          )
-                        }
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="space-y-6">
-                        {Boolean(title) && (
-                          <h3>{title}</h3>
-                        )}
-                        {Boolean(subtitle) && (
-                          <p className="subtitle1 text-black-secondary">{subtitle}</p>
-                        )}
-                      </div>
-                      <div>
-                        <GoogleReCaptchaProvider
-                  // eslint-disable-next-line no-process-env
-                          reCaptchaKey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_API_KEY}
-                          language="fr"
-                          scriptProps={{
-                            async: false,
-                            defer: false,
-                            appendTo: "head",
-                            nonce: undefined,
-                          }}
-                        >
-                          <ContactForm onSuccess={onSuccess} />
-                        </GoogleReCaptchaProvider>
+        <div className="grid lg:grid-cols-2 gap-6 lg:min-h-[500px]">
+          <div className="space-y-8">
+            {success
+              ? (
+                <>
+                  <div className="space-y-6">
+                    {Boolean(successTitle) && (
+                      <h3>{successTitle}</h3>
+                    )}
+                    {Boolean(successMessage) && (
+                      <p className="successMessage1 text-black-secondary">
+                        {successMessage}
+                      </p>
+                    )}
+                  </div>
+                  <div className="space-y-4">
+                    {
+                      Boolean(successLink) && (
+                        <Button
+                          link
+                          className="w-full"
+                          href={getAttr(successLink, "link")}
+                          label={getAttr(successLink, "title")}
+                        />
+                      )
+                    }
 
-                      </div>
-                    </>
-                  )
-              }
-            </div>
+                    <Button
+                      link
+                      href="#estimation=1"
+                      type="outlined"
+                      className="w-full"
+                      label="ESTIMATION INTERVENTION"
+                    />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="space-y-6">
+                    {Boolean(title) && (
+                      <h3>{title}</h3>
+                    )}
+                    {Boolean(subtitle) && (
+                      <p className="subtitle1 text-black-secondary">{subtitle}</p>
+                    )}
+                  </div>
+                  <div>
+                    <GoogleReCaptchaProvider
+                          // eslint-disable-next-line no-process-env
+                      reCaptchaKey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_API_KEY}
+                      language="fr"
+                      scriptProps={{
+                        async: false,
+                        defer: false,
+                        appendTo: "head",
+                        nonce: undefined,
+                      }}
+                    >
+                      <ContactForm onSuccess={onSuccess} />
+                    </GoogleReCaptchaProvider>
+                  </div>
+                </>
+              )}
           </div>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <GhostImage
               className="relative w-full h-full"
               imgClassName="bg-contain bg-no-repeat"
