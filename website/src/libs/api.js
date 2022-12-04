@@ -697,3 +697,59 @@ export const getServices = async () => {
 
   return data?.services?.data;
 };
+
+export const createContactMessage = async ({
+  name,
+  email,
+  phone,
+  address,
+  zipcode,
+  date,
+  time,
+}) => {
+  const data = await fetchAPI(
+    `
+    mutation createContactMessage(
+      $name: String,
+      $email: String,
+      $phone: String,
+      $address: String,
+      $zipcode: String,
+      $date: Date,
+      $time: Time,
+    ) {
+      createContactMessage(data:{
+        name:$name,
+        email:$email,
+        phone:$phone,
+        address:$address,
+        zipcode:$zipcode,
+        date:$date,
+        time:$time,
+      }) {
+        data {
+          id
+          attributes {
+            name
+            phone
+            email
+          }
+        }
+      }
+    }
+    `,
+    {
+      variables: {
+        name,
+        email,
+        phone,
+        address,
+        zipcode,
+        date,
+        time,
+      },
+    },
+  );
+
+  return data?.createContactRequest.data;
+};

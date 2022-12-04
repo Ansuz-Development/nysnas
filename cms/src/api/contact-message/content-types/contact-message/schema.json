@@ -4,7 +4,8 @@
   "info": {
     "singularName": "contact-message",
     "pluralName": "contact-messages",
-    "displayName": "ContactMessage"
+    "displayName": "ContactMessage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -26,14 +27,19 @@
     "zipcode": {
       "type": "string"
     },
-    "service": {
-      "type": "string"
-    },
     "date": {
       "type": "date"
     },
     "time": {
       "type": "time"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service.service"
+    },
+    "message": {
+      "type": "text"
     }
   }
 }
