@@ -5,7 +5,6 @@ const MyDocument = () => (
   <Html lang="fr">
     <Head>
       <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <meta name="author" content="HestiaEcobat" />
       <meta name="copyright" content="HestiaEcobat" />
@@ -20,9 +19,9 @@ const MyDocument = () => (
       <meta name="format-detection" content="telephone=no" />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="msapplication-config" content="/icons/browserconfig.xml" />
-      <meta name="msapplication-TileColor" content="#123D93" />
+      <meta name="msapplication-TileColor" content="#f3891b" />
       <meta name="msapplication-tap-highlight" content="no" />
-      <meta name="theme-color" content="#123D93" />
+      <meta name="theme-color" content="#f3891b" />
 
       <link rel="manifest" href="/manifest.json" />
       <link rel="shortcut icon" href="/favicon.png" />

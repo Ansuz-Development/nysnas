@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@ansuzdev/nexi@^0.1.41":
-  version "0.1.41"
-  resolved "https://registry.yarnpkg.com/@ansuzdev/nexi/-/nexi-0.1.41.tgz#c6c90d7f5ffd51b4753bffebe6c4ae242a57a9ce"
-  integrity sha512-rNFu4G73BizN4gB0gSG0tDvhd4XY0kEqjnl+ybR4hei8fLCMm/t8SYYbbAJMVtWXDJpskxGPwEcqa3pPxQlreg==
+"@ansuzdev/nexi@^0.1.42":
+  version "0.1.42"
+  resolved "https://registry.yarnpkg.com/@ansuzdev/nexi/-/nexi-0.1.42.tgz#0b432e4c357102f2d2f7aec9dc3eff80d7d78f4b"
+  integrity sha512-h3gWYFTfs1r+msHfPCyN1a5Fpz5OtnpAU/WACb4+Maf1UacG5Sg0fe8BOsLSn4uZXeoztkZooYjQ/XCmuVA4Cw==
   dependencies:
     "@tailwindcss/line-clamp" "^0.4.2"
     classnames "^2.3.2"

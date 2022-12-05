@@ -1,0 +1,10 @@
+{
+  "name": "Hestiaecobat",
+  "short_name": "Hestiaecobat",
+  "icons": [],
+  "theme_color": "#f3891b",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
