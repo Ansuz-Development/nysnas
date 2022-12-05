@@ -551,6 +551,18 @@ export const getFooter = async () => {
               linkedin
               twitter
             }
+            links {
+              title
+              link
+              type
+              icon {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
           }
         }
       }
