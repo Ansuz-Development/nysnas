@@ -51,6 +51,11 @@
     },
     "copyright": {
       "type": "text"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.link-item"
     }
   }
 }

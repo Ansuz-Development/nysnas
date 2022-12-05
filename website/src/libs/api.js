@@ -454,6 +454,13 @@ export const getPageBySlug = async slug => {
                   }
                 }
               }
+              ...on ComponentSectionsTextSection {
+                id
+                __typename
+                layout
+                background
+                content
+              }
             }
           }
         }
