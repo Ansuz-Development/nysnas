@@ -15,10 +15,10 @@ import DateIcon from "../../assets/icons/date.svg";
 import TimeIcon from "../../assets/icons/time.svg";
 
 const options = [
-  {value: "renovation", label: "Rénovation"},
-  {value: "depannage-plomberie", label: "Dépannage plomberie"},
-  {value: "depannage-chauffage", label: "Dépannage chauffage"},
-  {value: "depannage-electrique", label: "Dépannage électrique"},
+  {value: "Rénovation", label: "Rénovation"},
+  {value: "Dépannage plomberie", label: "Dépannage plomberie"},
+  {value: "Dépannage chauffage", label: "Dépannage chauffage"},
+  {value: "Dépannage électrique", label: "Dépannage électrique"},
 ];
 
 const ContactForm = ({onSuccess}) => {
