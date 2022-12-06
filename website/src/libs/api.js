@@ -917,7 +917,7 @@ export const createContactMessage = async ({
       $zipcode: String,
       $date: Date,
       $time: Time,
-      $service:ID,
+      $service:String,
     ) {
       createContactMessage(data:{
         name:$name,

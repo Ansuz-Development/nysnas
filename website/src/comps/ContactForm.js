@@ -1,47 +1,54 @@
 /* eslint-disable react/jsx-no-bind */
-import React, {useCallback, useEffect, useMemo, useState} from "react";
+import React, {useCallback, useState} from "react";
 import PropTypes from "prop-types";
 import TextField from "@ansuzdev/nexi/dist/comps/items/inputs/TextField";
 import Select from "@ansuzdev/nexi/dist/comps/items/inputs/Select";
 import Button from "@ansuzdev/nexi/dist/comps/items/buttons/Button";
 import {useForm, Controller} from "react-hook-form";
-import useSWR from "swr";
-import {useRouter} from "next/router";
-import {getAttr} from "@ansuzdev/nexi/dist/utils";
 import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 import axios from "axios";
-import {fetcher} from "../helpers/utils";
+// import useSWR from "swr";
+// import {useRouter} from "next/router";
+// import {getAttr} from "@ansuzdev/nexi/dist/utils";
+// import {fetcher} from "../helpers/utils";
 import DateIcon from "../../assets/icons/date.svg";
 import TimeIcon from "../../assets/icons/time.svg";
 
+const options = [
+  {value: "renovation", label: "Rénovation"},
+  {value: "depannage-plomberie", label: "Dépannage plomberie"},
+  {value: "depannage-chauffage", label: "Dépannage chauffage"},
+  {value: "depannage-electrique", label: "Dépannage électrique"},
+];
+
 const ContactForm = ({onSuccess}) => {
   const {executeRecaptcha} = useGoogleReCaptcha();
-  const router = useRouter();
+  // const router = useRouter();
   const [processing, setProcessing] = useState(false);
-  const serviceId = router.query?.service;
+  // const serviceId = router.query?.service;
 
-  const {data: services, error} = useSWR(
-    router.isReady ? "/api/service" : null,
-    fetcher,
-  );
+  // const {data: services, error} = useSWR(
+  //   router.isReady ? "/api/service" : null,
+  //   fetcher,
+  // );
 
-  const options = useMemo(() => {
-    if (services && Array.isArray(services)) {
-      return services.map(service => ({
-        value: getAttr(service, "id"),
-        label: getAttr(service, "name"),
-      }));
-    }
+  // const options = useMemo(() => {
+  //   if (services && Array.isArray(services)) {
+  //     return services.map(service => ({
+  //       value: getAttr(service, "id"),
+  //       label: getAttr(service, "name"),
+  //     }));
+  //   }
 
-    return [];
-  }, [services]);
+  //   return [];
+  // }, [services]);
 
   const {
     register,
     handleSubmit,
     formState: {errors},
     control,
-    setValue,
+    // setValue,
   } = useForm();
 
   const onSubmit = useCallback(
@@ -83,14 +90,14 @@ const ContactForm = ({onSuccess}) => {
     [executeRecaptcha, onSuccess, processing],
   );
 
-  useEffect(() => {
-    if (serviceId && options?.length) {
-      const selected = options.find(e => e.value === serviceId);
-      if (selected) {
-        setValue("service", selected);
-      }
-    }
-  }, [options, serviceId, setValue]);
+  // useEffect(() => {
+  //   if (serviceId && options?.length) {
+  //     const selected = options.find(e => e.value === serviceId);
+  //     if (selected) {
+  //       setValue("service", selected);
+  //     }
+  //   }
+  // }, [options, serviceId, setValue]);
 
   return (
     <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>

@@ -53,7 +53,7 @@ export const mailTemplate = `
       </tr>
       <tr>
         <td>Service:</td>
-        <td><% if (locals.serviceName) { %><b><%= serviceName %></b><% } %></td>
+        <td><% if (locals.service) { %><b><%= service %></b><% } %></td>
       </tr>
     </table>
   </body>
