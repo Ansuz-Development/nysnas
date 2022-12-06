@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_items_partner_items",
+  "info": {
+    "displayName": "PartnerItem",
+    "icon": "hands-helping"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "introduction": {
+      "type": "text"
+    },
+    "photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

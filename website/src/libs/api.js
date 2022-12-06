@@ -77,6 +77,14 @@ export const getHomepage = async () => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
                 slides {
                   id
@@ -129,6 +137,14 @@ export const getHomepage = async () => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsGallerySection {
@@ -149,6 +165,14 @@ export const getHomepage = async () => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsPricingSection {
@@ -172,6 +196,14 @@ export const getHomepage = async () => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsGallerySection {
@@ -192,6 +224,48 @@ export const getHomepage = async () => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+              ...on ComponentSectionsPartnerSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                partners {
+                  id
+                  name
+                  photo {
+                    data {
+                      attributes {
+                        url
+                        formats
+                      }
+                    }
+                  }
+                  introduction
+                  link
+                }
+                links {
+                  title
+                  link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -263,6 +337,14 @@ export const getPageBySlug = async slug => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
                 slides {
                   id
@@ -315,6 +397,14 @@ export const getPageBySlug = async slug => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsGallerySection {
@@ -335,6 +425,14 @@ export const getPageBySlug = async slug => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsPricingSection {
@@ -358,6 +456,14 @@ export const getPageBySlug = async slug => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsGallerySection {
@@ -378,6 +484,14 @@ export const getPageBySlug = async slug => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsPreviewSection {
@@ -398,6 +512,14 @@ export const getPageBySlug = async slug => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsQuoteSection {
@@ -422,6 +544,14 @@ export const getPageBySlug = async slug => {
                 links {
                   title
                   link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
                 }
               }
               ...on ComponentSectionsContactSection {
@@ -460,6 +590,40 @@ export const getPageBySlug = async slug => {
                 layout
                 background
                 content
+              }
+              ...on ComponentSectionsPartnerSection {
+                id
+                __typename
+                title
+                subtitle
+                layout
+                background
+                partners {
+                  id
+                  name
+                  photo {
+                    data {
+                      attributes {
+                        url
+                        formats
+                      }
+                    }
+                  }
+                  introduction
+                  link
+                }
+                links {
+                  title
+                  link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -550,6 +714,8 @@ export const getFooter = async () => {
               facebook
               linkedin
               twitter
+              youtube
+              instagram
             }
             links {
               title

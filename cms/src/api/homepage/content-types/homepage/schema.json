@@ -36,7 +36,9 @@
         "sections.quote-section",
         "sections.service-section",
         "sections.text-section",
-        "sections.stats-section"
+        "sections.stats-section",
+        "sections.partner-section",
+        "sections.preview-section"
       ]
     }
   }

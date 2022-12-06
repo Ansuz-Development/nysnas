@@ -41,7 +41,8 @@
         "sections.service-section",
         "sections.text-section",
         "sections.stats-section",
-        "sections.preview-section"
+        "sections.preview-section",
+        "sections.partner-section"
       ]
     }
   }

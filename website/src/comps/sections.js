@@ -9,6 +9,7 @@ const ServiceSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/
 const PreviewSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/previews/PreviewSection"));
 const QuoteSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/quotes/QuoteSection"));
 const TextSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/texts/TextSection"));
+const PartnerSection = dynamic(() => import("@ansuzdev/nexi/dist/comps/sections/partners/PartnerSection"));
 const ContactSection = dynamic(() => import("./ContactSection"));
 
 const renderSection = data => {
@@ -31,6 +32,8 @@ const renderSection = data => {
     return <ContactSection data={data} />;
   case "ComponentSectionsTextSection":
     return <TextSection data={data} />;
+  case "ComponentSectionsPartnerSection":
+    return <PartnerSection data={data} />;
   default:
     return null;
   }
