@@ -35,7 +35,7 @@ const revalidate = async (hook, res) => {
   } else if (
     hook.model === "navbar"
     || hook.model === "footer"
-    || hook.model === "servicemodal") {
+    || hook.model === "service-modal") {
     res.revalidate("/");
     const pages = (await getPages()) || [];
     for (const page of pages) {
@@ -43,7 +43,7 @@ const revalidate = async (hook, res) => {
     }
   } else if (hook.model === "page") {
     res.revalidate(`/${hook.entry.slug}`);
-  } else if (hook.model === "servicegroup") {
+  } else if (hook.model === "service-group") {
     const serviceGroup = await getServiceGroup(hook.entry.id);
 
     res.revalidate(`/questionnaire/${hook.entry.id}`);
