@@ -38,6 +38,7 @@ const BasePage = ({path, navbar, footer, serviceModal, children}) => {
         gtag('js', new Date());
 
         gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+        gtag('config', 'AW-11034914200');
       `}
       </Script>
 

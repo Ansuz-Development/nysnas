@@ -28,6 +28,8 @@ const getToken = req => {
 };
 
 const revalidate = async (hook, res) => {
+  console.log(hook);
+
   if (hook.model === "homepage") {
     res.revalidate("/");
   } else if (
@@ -41,6 +43,10 @@ const revalidate = async (hook, res) => {
     }
   } else if (hook.model === "page") {
     res.revalidate(`/${hook.entry.slug}`);
+  } else if (hook.model === "servicegroup") {
+    res.revalidate(`/questionnaire/${hook.entry.id}`);
+  } else if (hook.model === "service") {
+    res.revalidate(`/service/${hook.entry.id}`);
   }
 };
 
