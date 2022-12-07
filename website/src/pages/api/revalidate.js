@@ -55,7 +55,7 @@ const revalidate = async (hook, res) => {
     const service = await getService(hook.entry.id);
 
     res.revalidate(`/service/${hook.entry.id}`);
-    const groupId = getAttr(service, "parent", "id");
+    const groupId = getAttr(service, "group", "id");
     if (groupId) {
       res.revalidate(`/questionnaire/${groupId}`);
     }
