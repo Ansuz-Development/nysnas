@@ -1,7 +1,7 @@
 // import {generateSitemap} from "../../lib/generate-sitemap";
 
 import {getAttr} from "@ansuzdev/nexi/dist/utils";
-import {getPages} from "../../libs/api";
+import {getPages, getService, getServiceGroup} from "../../libs/api";
 
 const getToken = req => {
   if (
@@ -44,9 +44,21 @@ const revalidate = async (hook, res) => {
   } else if (hook.model === "page") {
     res.revalidate(`/${hook.entry.slug}`);
   } else if (hook.model === "servicegroup") {
+    const serviceGroup = await getServiceGroup(hook.entry.id);
+
     res.revalidate(`/questionnaire/${hook.entry.id}`);
+    const parentId = getAttr(serviceGroup, "parent", "id");
+    if (parentId) {
+      res.revalidate(`/questionnaire/${parentId}`);
+    }
   } else if (hook.model === "service") {
+    const service = await getService(hook.entry.id);
+
     res.revalidate(`/service/${hook.entry.id}`);
+    const groupId = getAttr(service, "parent", "id");
+    if (groupId) {
+      res.revalidate(`/questionnaire/${groupId}`);
+    }
   }
 };
 
