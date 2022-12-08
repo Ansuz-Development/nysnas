@@ -10,32 +10,42 @@ body {
 @layer base {
   h1 {
     font-family: "Roboto Slab", serif !important;
-    @apply text-8xl font-light leading-snug tracking-[-1.5px];
+    @apply text-5xl font-normal leading-snug tracking-normal;
+    @apply md:text-6xl md:font-light md:leading-snug md:tracking-[-0.5px];
+    @apply lg:text-8xl lg:font-light lg:leading-snug lg:tracking-[-1.5px];
   }
 
   h2 {
     font-family: "Roboto Slab", serif !important;
-    @apply text-6xl font-light leading-snug tracking-[-0.5px];
+    @apply text-4xl font-normal leading-snug tracking-[0.25px];
+    @apply md:text-5xl md:font-normal md:leading-snug md:tracking-normal;
+    @apply lg:text-6xl lg:font-light lg:leading-snug lg:tracking-[-0.5px];
   }
 
   h3 {
     font-family: "Roboto Slab", serif !important;
-    @apply text-5xl leading-snug;
+    @apply text-2xl font-normal leading-normal tracking-normal;
+    @apply md:text-4xl md:font-normal md:leading-snug md:tracking-[0.25px];
+    @apply lg:text-5xl lg:font-normal lg:leading-snug;
   }
 
   h4 {
     font-family: "Roboto Slab", serif !important;
-    @apply text-4xl leading-snug tracking-[0.25px];
+    @apply text-xl font-medium leading-normal tracking-[0.15px];
+    @apply md:text-2xl md:font-normal md:leading-normal md:tracking-normal;
+    @apply lg:text-4xl lg:font-normal lg:leading-snug lg:tracking-[0.25px];
   }
 
   h5 {
     font-family: "Roboto Slab", serif !important;
-    @apply text-2xl leading-normal;
+    @apply text-xl font-medium leading-normal tracking-[0.15px];
+    @apply md:text-2xl md:font-normal md:leading-normal md:tracking-normal;
   }
 
   h6 {
     font-family: "Roboto Slab", serif !important;
-    @apply text-xl font-medium leading-normal tracking-[0.15px];
+    @apply text-lg font-medium leading-normal tracking-[0.15px];
+    @apply md:text-xl ;
   }
 
   .body1 {
