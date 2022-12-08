@@ -26,6 +26,7 @@ apiRoute.post(async (req, res) => {
     phone: req.body.phone,
     address: req.body.address,
     zipcode: req.body.zipcode,
+    city: req.body.city,
     date: req.body.date || undefined,
     time: req.body.time ? `${req.body.time}:00.000` : undefined,
     service: req.body.service,

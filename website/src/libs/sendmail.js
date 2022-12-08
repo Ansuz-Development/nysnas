@@ -44,6 +44,10 @@ export const mailTemplate = `
         <td><% if (locals.zipcode) { %><b><%= zipcode %></b><% } %></td>
       </tr>
       <tr>
+        <td>Ville:</td>
+        <td><% if (locals.city) { %><b><%= city %></b><% } %></td>
+      </tr>
+      <tr>
         <td>Date:</td>
         <td><% if (locals.date) { %><b><%= date %></b><% } %></td>
       </tr>

@@ -38,6 +38,9 @@
     },
     "service": {
       "type": "string"
+    },
+    "city": {
+      "type": "string"
     }
   }
 }

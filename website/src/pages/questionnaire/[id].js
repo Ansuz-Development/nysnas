@@ -44,8 +44,8 @@ const QuestionPage = ({serviceGroup, navbar, footer, serviceModal}) => {
                     return (
                       <Link key={id} href={`/questionnaire/${id}`}>
                         <div className="flex justify-between items-center py-3 space-x-2 border-b border-neutral-200 hover:font-medium">
-                          <span className="body1 text-secondary-600">{getAttr(group, "name")}</span>
-                          <NavigateIcon className="fill-secondary-600" />
+                          <span className="body1 text-primary-600">{getAttr(group, "name")}</span>
+                          <NavigateIcon className="fill-primary-600" />
                         </div>
                       </Link>
                     );
@@ -57,10 +57,10 @@ const QuestionPage = ({serviceGroup, navbar, footer, serviceModal}) => {
                     return (
                       <Link key={id} href={`/service/${id}`}>
                         <div className="flex justify-between items-center py-3 space-x-2 border-b border-neutral-200 hover:font-medium">
-                          <span className="body1 text-secondary-600">
+                          <span className="body1 text-primary-600">
                             {getAttr(service, "answer") || getAttr(service, "name")}
                           </span>
-                          <NavigateIcon className="fill-secondary-600" />
+                          <NavigateIcon className="fill-primary-600" />
                         </div>
                       </Link>
                     );
