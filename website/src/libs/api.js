@@ -662,6 +662,14 @@ export const getNavbar = async () => {
               id
               title
               link
+              type
+              icon {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
             }
           }
         }

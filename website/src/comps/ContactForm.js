@@ -206,7 +206,7 @@ const ContactForm = ({onSuccess}) => {
         <Button
           link
           href="#estimation=1"
-          type="outlined"
+          type="outline"
           className="w-full"
           label="ESTIMATION INTERVENTION"
         />

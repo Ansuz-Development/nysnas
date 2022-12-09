@@ -112,13 +112,13 @@ const ServicePage = ({service, navbar, footer, serviceModal}) => {
               <div className="relative border rounded border-neutral-200 space-y-12 mt-12">
                 <div className="absolute flex justify-center w-full -top-6">
                   <h4 className="bg-white px-6">
-                    Bonne de savoir
+                    INFORMATIONS
                   </h4>
                 </div>
 
                 <div
                   className="ck-content p-6"
-                // eslint-disable-next-line react/no-danger
+                  // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{__html: getAttr(service, "description")}}
                 />
               </div>
