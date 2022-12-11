@@ -28,8 +28,8 @@ const QuestionPage = ({serviceGroup, navbar, footer, serviceModal}) => {
       serviceModal={serviceModal}
     >
       <SEOItem
-        title="Title"
-        description="My description"
+        title={`${getAttr(serviceGroup, "name")} - HESTIA ECO BAT - Rénovation et dépannage de l'habitat`}
+        description="HESTIA ECO BAT - Rénovation et dépannage de l'habitat - plomberie, électricité, chauffage, salle de bain, cuisine, rénovation complète - Des professionnels et des garanties"
       />
 
       <section className="py-12">

@@ -26,8 +26,8 @@ const ServicePage = ({service, navbar, footer, serviceModal}) => {
       serviceModal={serviceModal}
     >
       <SEOItem
-        title={getAttr(service, "name")}
-        description={getAttr(service, "note")}
+        title={`${getAttr(service, "name")} - HESTIA ECO BAT - Rénovation et dépannage de l'habitat`}
+        description="HESTIA ECO BAT - Rénovation et dépannage de l'habitat - plomberie, électricité, chauffage, salle de bain, cuisine, rénovation complète - Des professionnels et des garanties"
       />
 
       <section className="py-12">

@@ -10,8 +10,8 @@ import BasePage from "../comps/BasePage";
 const HomePage = ({homepage, navbar, footer, serviceModal}) => (
   <BasePage path="/" navbar={navbar} footer={footer} serviceModal={serviceModal}>
     <SEOItem
-      title="Title"
-      description="My description"
+      title="HESTIA ECO BAT - Rénovation et dépannage de l'habitat"
+      description="HESTIA ECO BAT - Rénovation et dépannage de l'habitat - plomberie, électricité, chauffage, salle de bain, cuisine, rénovation complète - Des professionnels et des garanties"
     />
 
     {getAttr(homepage, "sections")?.map((section, index) => (
