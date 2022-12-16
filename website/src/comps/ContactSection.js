@@ -1,5 +1,6 @@
 import React, {useCallback, useState} from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 import {getAttr, getFormatUrl, getUrl} from "@ansuzdev/nexi/dist/utils";
 import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
 
@@ -93,19 +94,49 @@ const ContactSection = ({data}) => {
                 </>
               )}
           </div>
-          <div className="hidden lg:block">
-            <GhostImage
-              className="relative w-full h-full"
-              imgClassName="bg-contain bg-no-repeat"
-              layout="fill"
-              alt="Contact background"
-              src={photoUrl}
-              loading="lazy"
-              placeholder="blur"
-              blurDataURL={thumbnailUrl}
-              objectFit="contain"
-              objectPosition="center top"
-            />
+          <div className="space-y-4">
+            <div className="hidden lg:block">
+              <GhostImage
+                className="relative w-full h-full lg:min-h-[500px]"
+                imgClassName="bg-contain bg-no-repeat"
+                layout="fill"
+                alt="Contact background"
+                src={photoUrl}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={thumbnailUrl}
+                objectFit="contain"
+                objectPosition="center top"
+              />
+            </div>
+            {Boolean(links) && (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {links.map((link, index) => {
+                  const linkTitle = getAttr(link, "title");
+                  const linkUrl = getAttr(link, "link");
+                  const icon = getAttr(link, "icon");
+                  const iconUrl = getUrl(icon);
+
+                  return (
+                      // eslint-disable-next-line react/no-array-index-key
+                    <Link href={linkUrl} key={index}>
+                      <div className="overflow-hidden space-y-4">
+                        <GhostImage
+                          className="relative h-36"
+                          layout="fill"
+                          alt={linkTitle}
+                          title={linkTitle}
+                          src={iconUrl}
+                          loading="lazy"
+                          objectFit="contain"
+                          objectPosition="center"
+                        />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
       </div>
