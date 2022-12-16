@@ -583,6 +583,18 @@ export const getPageBySlug = async slug => {
                     }
                   }
                 }
+                links {
+                  title
+                  link
+                  type
+                  icon {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
               }
               ...on ComponentSectionsTextSection {
                 id

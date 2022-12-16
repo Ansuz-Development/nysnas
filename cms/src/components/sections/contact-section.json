@@ -40,6 +40,11 @@
       "type": "component",
       "repeatable": false,
       "component": "items.link-item"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.link-item"
     }
   }
 }

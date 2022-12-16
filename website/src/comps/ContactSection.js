@@ -13,6 +13,7 @@ const ContactSection = ({data}) => {
   const successTitle = getAttr(data, "successTitle");
   const successMessage = getAttr(data, "successMessage");
   const successLink = getAttr(data, "successLink");
+  const links = getAttr(data, "links");
 
   const photo = getAttr(data, "photo");
   const photoUrl = getUrl(photo);
