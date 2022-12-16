@@ -83,7 +83,7 @@ transporter.verify((error, success) => {
 });
 
 const sendEmail = (toEmail, subject, content, htmlContent) => {
-  console.log("Send email");
+  console.log("Send email:", toEmail, subject);
 
   return new Promise((resolve, reject) => {
     transporter.sendMail({
@@ -92,10 +92,8 @@ const sendEmail = (toEmail, subject, content, htmlContent) => {
       subject,
       text: content,
       html: htmlContent,
-    }, (err, info) => {
+    }, err => {
       if (err) reject(err);
-
-      console.log(info);
 
       resolve();
     });

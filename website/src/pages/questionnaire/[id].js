@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import {getAttr} from "@ansuzdev/nexi/dist/utils";
 import SEOItem from "@ansuzdev/nexi/dist/comps/items/common/SEOItem";
 import Link from "next/link";
-import {useRouter} from "next/router";
 import {getFooter, getNavbar, getServiceGroup, getServiceGroups, getServiceModal} from "../../libs/api";
 import BasePage from "../../comps/BasePage";
 
@@ -15,8 +14,6 @@ import PhoneIcon from "../../../assets/icons/phone.svg";
 const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE;
 
 const QuestionPage = ({serviceGroup, navbar, footer, serviceModal}) => {
-  const router = useRouter();
-
   const parentId = getAttr(serviceGroup, "parent", "id");
   const subGroups = getAttr(serviceGroup, "subGroups", "data");
   const services = getAttr(serviceGroup, "services", "data");
