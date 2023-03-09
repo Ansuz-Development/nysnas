@@ -289,6 +289,7 @@ export const getPages = async () => {
           attributes {
             title
             slug
+            updatedAt
           }
         }
       }
