@@ -11,20 +11,19 @@
     "lint": "eslint config src --fix"
   },
   "devDependencies": {
-    "eslint": "8.27.0",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint": "^8.35.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-promise": "^6.0.1",
-    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^1.1.2",
-    "@strapi/plugin-graphql": "^4.5.1",
-    "@strapi/plugin-i18n": "^4.5.1",
-    "@strapi/plugin-seo": "^1.7.7",
-    "@strapi/plugin-users-permissions": "^4.5.1",
-    "@strapi/strapi": "^4.5.1",
-    "better-sqlite3": "7.4.6",
+    "@strapi/plugin-graphql": "^4.7.1",
+    "@strapi/plugin-i18n": "^4.7.1",
+    "@strapi/plugin-seo": "^1.8.0",
+    "@strapi/plugin-users-permissions": "^4.7.1",
+    "@strapi/strapi": "^4.7.1",
     "mysql": "^2.18.1"
   },
   "author": {
